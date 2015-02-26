@@ -53,7 +53,13 @@ public class BaseController {
 
         try {
             JSONObject respJson = new JSONObject(res);
-
+            /*
+            Sample response to which contents are coded.
+            {
+                "name":"Sureya",
+                "title":"Data Guy"
+            }
+            */
             String name = respJson.getString("name");
             String title = respJson.getString("title");
             String finalResponse = "Name is : "+name+" and title is : "+title;
