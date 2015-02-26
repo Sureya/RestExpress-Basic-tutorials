@@ -14,6 +14,7 @@ public class Route {
     public static void define(RestExpress server){
         //server.uri("/test", new BaseController()).action("testing", HttpMethod.GET).noSerialization();
         server.uri("/insert/values/{credentials}", new BaseController()).action("testing", HttpMethod.GET).noSerialization();
+        server.uri("/insert/values/post", new BaseController()).action("postReq", HttpMethod.POST).noSerialization();
 
     }
 }
