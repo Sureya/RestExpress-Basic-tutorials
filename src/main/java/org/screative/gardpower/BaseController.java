@@ -42,4 +42,28 @@ public class BaseController {
 
 
     }
+    
+    public static void postReq(Request request, Response response){
+
+        System.out.println("Entered Post request method ");
+
+        //String jsonInput = String.valueOf(request.getBodyFromUrlFormEncoded(true));
+        String res = String.valueOf(request.getBodyFromUrlFormEncoded(false)).replace("=[]", "");
+        res = res.substring(1,res.length()-1);
+
+        try {
+            JSONObject respJson = new JSONObject(res);
+
+            String name = respJson.getString("name");
+            String title = respJson.getString("title");
+            String finalResponse = "Name is : "+name+" and title is : "+title;
+            response.setBody(finalResponse);
+        } catch (JSONException e) {
+            e.printStackTrace();
+
+        }
+        response.setBody("I'm fine");
+
+    }
+    
 }
